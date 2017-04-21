@@ -70,11 +70,22 @@ public void setDay(String m, int d, int y, String cal) {
 	
 	// leap year if divisible by 400, or if divisible by 4 and not 100
 	public boolean isLeapGregorian() {
+	    if(year%400==0){
+		return true;
+    }
+	    if(year%4==0&&year%100!=0){
+		return true;
+    }
+
 		return false;
 	}
 	
 	// leap year if divisible by 4
 	public boolean isLeapJulian() {
+
+	    if(year%4==0){
+		return true;
+    }
 		return false;
 	}
 	
