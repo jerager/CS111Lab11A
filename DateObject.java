@@ -43,21 +43,49 @@ public void setDay(String m, int d, int y, String cal) {
 	
 	// calculate the days in the month  Use isLeap
 	public int daysInMonth() {
-		return 0;
+	    int days = 0;
+	    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12){
+		days = 31;
+	    }
+	    else if (month == 4 || month == 6 || month == 9 || month == 11){
+		days = 30;
+	    }
+	    else if (month == 2){
+		if (isLeap() == true){
+		    days = 29;
+		}
+		days = 28;
+	    }
+	    return days;
 	}
 	
 	// call one of isLeapGregorian and isLeap Julian
 	public boolean isLeap() {
+	    if(calendar.equals("Gregorian")){
+		isLeapGregorian();
+	    }
+	    else isLeapJulian();
 		return false;
 	}
 	
 	// leap year if divisible by 400, or if divisible by 4 and not 100
-  	public boolean isLeapGregorian() {
+
+	public boolean isLeapGregorian() {
+	    if(year%400==0){
+		return true;
+    }
+	    if(year%4==0&&year%100!=0){
+		return true;
+    }
 		return false;
 	}
 	
 	// leap year if divisible by 4
 	public boolean isLeapJulian() {
+
+	    if(year%4==0){
+		return true;
+    }
 		return false;
 	}
 	
@@ -70,7 +98,9 @@ public void setDay(String m, int d, int y, String cal) {
 	
 	// return true if December 31
 	public boolean isLastDayInYear() {
-		return false;
+	    if(day==31 && month==12)
+		return true;
+	    else return false;
 	}
 
 	// return a new Date with the same fields as this one
@@ -83,16 +113,36 @@ public void setDay(String m, int d, int y, String cal) {
 	// return a new Date with the same fields as this one's tomorrow
 	public DateObject generateTomorrow() {
 	    DateObject new1 = new DateObject();
-	    return new1;
+	    if(isLastDayInYear()){
+		new1.day = 1;
+		new1.month = 1;
+		new1.year = year+1;
+		return new1;
+	    }
+	    if(daysInMonth()==day){
+		new1.day = 1;
+		new1.month = month+1;
+		new1.year = year;
+		return new1;
+
+	    }
+	    else{
+		new1.day = day+1;
+		new1.month = month;
+		new1.year = year;
+		return new1;
+
+	    }
+
 	}
 	
 	//return the year
 	public int getYear() {
-		return 0;
+	    return year;
 	}
 	// return the day
 	public int getDay() {
-		return 0;
+		return day;
 		
 	}
 	
@@ -100,7 +150,7 @@ public void setDay(String m, int d, int y, String cal) {
 	public String getMonth() {
 		
 		
-		return null;	
+		return names[month];	
 	}
 	
 	// finish this - check for the end of a month use daysinmonth
@@ -108,20 +158,32 @@ public void setDay(String m, int d, int y, String cal) {
 	
 		
 		if (isLastDayInYear()) {
+
 			day = 1;
 			month = 1;
 			year = year+1;
-		}
-		else {
-			bump();
-		}
+
+		} else	if (daysInMonth() == day){
+
+		    day = 1;
+		    month = month + 1;
+
+		} else {
+
+		    bump();
 	
-	
+		}
 	}
 
-	// move forward n days (use makeTomorrow
+
+
+
+	// move forward n days (use makeTomorrow)
 	public void makeTomorrow(int n){
+	    for(int i =0;i<n;i++){
+		makeTomorrow();}
 	}
+
 
 	// return true if this is after other
 	public boolean after(DateObject other) {
