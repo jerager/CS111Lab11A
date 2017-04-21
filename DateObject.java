@@ -70,7 +70,9 @@ public void setDay(String m, int d, int y, String cal) {
 	
 	// return true if December 31
 	public boolean isLastDayInYear() {
-		return false;
+	    if(day==31 && month==12)
+		return true;
+	    else return false;
 	}
 
 	// return a new Date with the same fields as this one
