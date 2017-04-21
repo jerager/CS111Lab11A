@@ -48,6 +48,10 @@ public void setDay(String m, int d, int y, String cal) {
 	
 	// call one of isLeapGregorian and isLeap Julian
 	public boolean isLeap() {
+	    if(calendar.equals("Gregorian")){
+		isLeapGregorian();
+	    }
+	    else isLeapJulian();
 		return false;
 	}
 	
