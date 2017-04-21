@@ -120,8 +120,10 @@ public void setDay(String m, int d, int y, String cal) {
 	
 	}
 
-	// move forward n days (use makeTomorrow
+	// move forward n days (use makeTomorrow)
 	public void makeTomorrow(int n){
+	    for(int i =0;i<n;i++){
+		makeTomorrow();}
 	}
 
 	// return true if this is after other
