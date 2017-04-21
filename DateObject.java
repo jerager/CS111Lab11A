@@ -107,20 +107,33 @@ public void setDay(String m, int d, int y, String cal) {
 	
 		
 		if (isLastDayInYear()) {
+
 			day = 1;
 			month = 1;
 			year = year+1;
-		}
-		else {
-			bump();
-		}
+
+		} else	if (daysInMonth() == day){
+
+		    day = 1;
+		    month = month + 1;
+
+		} else {
+
+		    bump();
 	
-	
+		}
 	}
 
-	// move forward n days (use makeTomorrow
+
+
+
+
+	// move forward n days (use makeTomorrow)
 	public void makeTomorrow(int n){
+
+
 	}
+
 
 	// return true if this is after other
 	public boolean after(DateObject other) {
