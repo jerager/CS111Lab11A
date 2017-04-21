@@ -69,6 +69,7 @@ public void setDay(String m, int d, int y, String cal) {
 	}
 	
 	// leap year if divisible by 400, or if divisible by 4 and not 100
+
 	public boolean isLeapGregorian() {
 	    if(year%400==0){
 		return true;
@@ -76,7 +77,6 @@ public void setDay(String m, int d, int y, String cal) {
 	    if(year%4==0&&year%100!=0){
 		return true;
     }
-
 		return false;
 	}
 	
@@ -106,6 +106,7 @@ public void setDay(String m, int d, int y, String cal) {
 	// return a new Date with the same fields as this one
 	public DateObject generateCopy() {
 	    DateObject new1 = new DateObject();
+	    new1.setDay(names[this.month], this.day, this.year, this.calendar);
 	    return new1;
 	}
 	
