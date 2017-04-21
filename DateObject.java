@@ -124,8 +124,13 @@ public void setDay(String m, int d, int y, String cal) {
 
 	// return true if this is after other
 	public boolean after(DateObject other) {
-		return false;
+	    if(year > other.year) return true;
+	    else if(year == other.year && month > other.month) return true;
+	    else if(year == other.year && month == other.month && day > other.day) return true;
+	    else return false;
+	   
 	}
+	
 	
 	// return true if this is before other 
 	public boolean before(DateObject other) {
