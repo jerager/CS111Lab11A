@@ -82,7 +82,27 @@ public void setDay(String m, int d, int y, String cal) {
 	// return a new Date with the same fields as this one's tomorrow
 	public DateObject generateTomorrow() {
 	    DateObject new1 = new DateObject();
-	    return new1;
+	    if(isLastDayInYear()){
+		new1.day = 1;
+		new1.month = 1;
+		new1.year = year+1;
+		return new1;
+	    }
+	    if(daysInMonth()==day){
+		new1.day = 1;
+		new1.month = month+1;
+		new1.year = year;
+		return new1;
+
+	    }
+	    else{
+		new1.day = day+1;
+		new1.month = month;
+		new1.year = year;
+		return new1;
+
+	    }
+
 	}
 	
 	//return the year
