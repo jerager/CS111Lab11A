@@ -68,7 +68,6 @@ public void setDay(String m, int d, int y, String cal) {
 		return isLeapGregorian();
 	    }
 	    else return isLeapJulian();
-	    return false;
 	}
 	
 	// leap year if divisible by 400, or if divisible by 4 and not 100
