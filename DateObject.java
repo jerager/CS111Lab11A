@@ -29,7 +29,10 @@ public class DateObject {
 	
 public void setDay(String m, int d, int y, String cal) {
 		
-
+		day = d;
+		year = y;
+		month = monthToInt(m);
+		calendar = cal;
 	}
 		
 	public void bump() {
@@ -62,10 +65,10 @@ public void setDay(String m, int d, int y, String cal) {
 	// call one of isLeapGregorian and isLeap Julian
 	public boolean isLeap() {
 	    if(calendar.equals("Gregorian")){
-		isLeapGregorian();
+		return isLeapGregorian();
 	    }
-	    else isLeapJulian();
-		return false;
+	    else return isLeapJulian();
+	    return false;
 	}
 	
 	// leap year if divisible by 400, or if divisible by 4 and not 100
@@ -105,9 +108,7 @@ public void setDay(String m, int d, int y, String cal) {
 
 	// return a new Date with the same fields as this one
 	public DateObject generateCopy() {
-	    DateObject new1 = new DateObject();
-	    new1.setDay(names[this.month], this.day, this.year, this.calendar);
-	    return new1;
+	   return null;
 	}
 	
 	// return a new Date with the same fields as this one's tomorrow
@@ -187,11 +188,8 @@ public void setDay(String m, int d, int y, String cal) {
 
 	// return true if this is after other
 	public boolean after(DateObject other) {
-	    if(year > other.year) return true;
-	    else if(year == other.year && month > other.month) return true;
-	    else if(year == other.year && month == other.month && day > other.day) return true;
-	    else return false;
-	   
+	  
+	   return false;
 	}
 	
 	
