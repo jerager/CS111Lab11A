@@ -187,8 +187,10 @@ public void setDay(String m, int d, int y, String cal) {
 
 	// return true if this is after other
 	public boolean after(DateObject other) {
-	  
-	   return false;
+	    if (day > other.day && year > other.year && month > other.month)
+		return true;
+	    else
+		return false;
 	}
 	
 	
